@@ -1,35 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const currentQuestion = 0;
+ 
+  const quizQuestions = [
+    {
+      question:"What is the Complexity of Binary Search ? ",
+      options: [
+        {answer: 'O(n)', isCorrect : false},
+        {answer: 'O(logn)', isCorrect : true},
+        {answer: 'O(nlogn)', isCorrect : false},
+        {answer: 'O(1)', isCorrect : false},
+      ]
+
+    },
+    {
+      question:"What is the Complexity of Linear Search ? ",
+      options: [
+        {answer: 'O(n)', isCorrect : true},
+        {answer: 'O(logn)', isCorrect : false},
+        {answer: 'O(nlogn)', isCorrect : false},
+        {answer: 'O(1)', isCorrect : false},
+      ]
+
+    },
+
+    {
+      question:"What is the Complexity of MergeSort ? ",
+      options: [
+        {answer: 'O(n)', isCorrect : false},
+        {answer: 'O(logn)', isCorrect : false},
+        {answer: 'O(nlogn)', isCorrect : true},
+        {answer: 'O(1)', isCorrect : false},
+      ]
+
+    },
+
+  ];
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='app'>  
+      <div className='question-section'>
+
+          <div className='question-count'>
+              <span>Question {currentQuestion + 1}</span> / {quizQuestions.length}
+          </div>
+
+          <div className="question-text">
+            {quizQuestions[0].question}
+          </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div className='answer-section'>
+          {quizQuestions[0].options.map(option => <button>{option.answer}</button>)}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+      {/* Button to Show Next Questions */}
+
+      <button>Next</button>
+    </div>
   )
 }
 
 export default App
+
+
+// 1.8hr
