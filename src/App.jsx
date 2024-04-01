@@ -1,6 +1,7 @@
 import { useState } from 'react';
-
+import Geolocation from './components/GeoLocation/Geolocation';
 import './App.css'
+import AnswerSection from './components/AnswerSection';
 
 function App() {
 
@@ -48,12 +49,17 @@ function App() {
   }
 
   // Check the Answer is Correct Or Not 
-  function checkAnswer(){
-    
+  function checkAnswer(option){
+      if(option.isCorrect){
+        console.log("Correct Answer");
+      }else{
+        console.log("Wrong Answer");
+      }
   }
 
   return (
     <div className='card-wrapper'>
+      <Geolocation/>
         <div className='app'>  
         <div className='question-section'>
 
@@ -65,10 +71,11 @@ function App() {
               {quizQuestions[currentQuestion].question}
             </div>
         </div>
-
+       {/*   
         <div className='answer-section'>
-            {quizQuestions[currentQuestion].options.map(option => <button onClick={checkAnswer}>{option.answer}</button>)}
-        </div>
+            {quizQuestions[currentQuestion].options.map(option => <button onClick={() =>checkAnswer(option)}>{option.answer}</button>)}
+        </div> */}
+        <AnswerSection question = {quizQuestions[currentQuestion]} onAnswerClick = {checkAnswer}/>
       </div>
        {/* Button to Show Next Questions */} 
        {/* Onclick is a HOF and onNextClick is a Callback function */}
