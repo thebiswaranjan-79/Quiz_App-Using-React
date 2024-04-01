@@ -1,9 +1,10 @@
+import { useState } from 'react';
 
 import './App.css'
 
 function App() {
 
-  const currentQuestion = 0;
+  const [currentQuestion,setCurrentQuestion] = useState(0);
  
   const quizQuestions = [
     {
@@ -40,27 +41,38 @@ function App() {
 
   ];
 
+  // Go to Next Question 
+  function onNextClick(){
+    if(currentQuestion == quizQuestions.length -1) return;
+    setCurrentQuestion(currentQuestion + 1);
+  }
+
+  // Check the Answer is Correct Or Not 
+  function checkAnswer(){
+    
+  }
 
   return (
-    <div className='app'>  
-      <div className='question-section'>
+    <div className='card-wrapper'>
+        <div className='app'>  
+        <div className='question-section'>
 
-          <div className='question-count'>
-              <span>Question {currentQuestion + 1}</span> / {quizQuestions.length}
-          </div>
+            <div className='question-count'>
+                <span>Question {currentQuestion + 1}</span> / {quizQuestions.length}
+            </div>
 
-          <div className="question-text">
-            {quizQuestions[0].question}
-          </div>
+            <div className="question-text">
+              {quizQuestions[currentQuestion].question}
+            </div>
+        </div>
+
+        <div className='answer-section'>
+            {quizQuestions[currentQuestion].options.map(option => <button onClick={checkAnswer}>{option.answer}</button>)}
+        </div>
       </div>
-
-      <div className='answer-section'>
-          {quizQuestions[0].options.map(option => <button>{option.answer}</button>)}
-      </div>
-
-      {/* Button to Show Next Questions */}
-
-      <button>Next</button>
+       {/* Button to Show Next Questions */} 
+       {/* Onclick is a HOF and onNextClick is a Callback function */}
+       <button onClick={onNextClick}>Next</button>
     </div>
   )
 }
