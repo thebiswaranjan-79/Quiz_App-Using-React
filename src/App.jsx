@@ -2,6 +2,8 @@ import { useState } from 'react';
 import GeolocationContainer from './components/GeoLocation/GeolocationContainer';
 import './App.css'
 import AnswerSection from './components/AnswerSection';
+import Geolocation from './components/GeoLocation/Geolocation';
+import GeolocationNewUi from './components/GeoLocation/GeolocationNewUi';
 
 function App() {
 
@@ -59,7 +61,9 @@ function App() {
 
   return (
     <div className='card-wrapper'>
-      <GeolocationContainer/>
+      <GeolocationContainer>
+          <GeolocationNewUi latitude={23} longitude={56}/>
+      </GeolocationContainer>
         <div className='app'>  
         <div className='question-section'>
 
