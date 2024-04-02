@@ -1,20 +1,5 @@
-import { useEffect, useState } from "react";
 
-export default function Geolocation(){
-    const [latitude, setLatitude] = useState(null);
-    const [longitude, setLongitude] = useState(null);
-    
-    function handleLocationSettings(coordinates){
-            setLatitude(coordinates.coords.latitude);
-            setLongitude(coordinates.coords.longitude);
-    }
-
-    // When the Component loads at that time we want to access the users lat and longitude
-    useEffect(() => {
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(handleLocationSettings);
-        }
-    }, [navigator])
+export default function Geolocation({latitude, longitude}){
 
     return (
         <div>

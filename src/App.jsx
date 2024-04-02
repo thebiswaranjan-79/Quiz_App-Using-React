@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Geolocation from './components/GeoLocation/Geolocation';
+import GeolocationContainer from './components/GeoLocation/GeolocationContainer';
 import './App.css'
 import AnswerSection from './components/AnswerSection';
 
@@ -59,7 +59,7 @@ function App() {
 
   return (
     <div className='card-wrapper'>
-      <Geolocation/>
+      <GeolocationContainer/>
         <div className='app'>  
         <div className='question-section'>
 
