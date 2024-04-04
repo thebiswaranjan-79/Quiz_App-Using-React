@@ -59,11 +59,11 @@ function App() {
       }
   }
 
+  const NewUiGeolocation = GeolocationContainer(Geolocation);
+
   return (
     <div className='card-wrapper'>
-      <GeolocationContainer>
-          <GeolocationNewUi latitude={23} longitude={56}/>
-      </GeolocationContainer>
+     <NewUiGeolocation />
         <div className='app'>  
         <div className='question-section'>
 
