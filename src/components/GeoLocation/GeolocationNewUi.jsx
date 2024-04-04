@@ -1,5 +1,7 @@
 
-export default function GeolocationNewUi({latitude, longitude}){
+export default function GeolocationNewUi(){
+
+    const[latitude, longitude] = useGeolocation();
 
     return (
         <div>
